@@ -9,7 +9,13 @@ import orderRouter from "./routes/orderRoute.js"
 
 
 
-
+app.use(cors(
+    {
+        origin:['https://deploy-mernstack-ecommerce-app'],
+        methods:["POST","GET"],
+        credentials:true
+    }
+));
 
 //app config
 const app = express()   
@@ -30,6 +36,7 @@ app.use("/images",express.static('uploads'))
 app.use("/api/user",userRouter)
 app.use("/api/cart",cartRouter)
 app.use("/api/order",orderRouter)
+
 
 
 app.get("/",(req,res)=>{
